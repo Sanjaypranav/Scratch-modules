@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: nandini
+Version: 0.0.1
+Summary: A Scratch Module for Machine learning
+Home-page: 
+Author: Sanjaypranav
+Author-email: sanjaypriya195@gmail.com
+Requires-Python: >=3.7,<3.10
