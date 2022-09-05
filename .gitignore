@@ -1,3 +1,4 @@
 build
 dist
 distcheck
+src/nandini.egg-info
