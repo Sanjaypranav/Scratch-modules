@@ -9,7 +9,7 @@ python setup.py install
 ```
 
 
-here is the [PyPi link](https://pypi.org/project/nandini/0.0.2/) for the package
+here is the [PyPi link](https://pypi.org/project/nandini/0.0.2.1/) for the package
 
 
 
