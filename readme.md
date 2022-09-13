@@ -4,5 +4,14 @@
 
 ```bash
 export PYTHONPATH=./src
+python setup.py sdist bdist_wheel
 python setup.py install
 ```
+
+
+here is the [PyPi link](https://pypi.org/project/nandini/0.0.1/) for the package
+
+
+
+
+for writing packages refer [link](https://towardsdatascience.com/how-to-publish-a-python-package-to-pypi-7be9dd5d6dcd)

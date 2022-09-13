@@ -19,4 +19,12 @@ setuptools.setup(
     python_requires='>=3.7,<3.10',
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    py_modules=['nandini'],
+    long_description=open('readme.md').read(),
+    long_description_content_type='text/markdown',
     )
