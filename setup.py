@@ -7,6 +7,10 @@ core_requirements = [
     'joblib==1.1.0',
     'nltk==3.7',
     'progressbar==2.5',
+    'scipy==1.9.1',
+    'gensim==4.2.0'
+    
+
 ]
 
 setuptools.setup(
@@ -15,7 +19,7 @@ setuptools.setup(
     url="",
     author='Sanjaypranav',
     author_email='sanjaypriya195@gmail.com',
-    version='0.0.2.1',
+    version='0.0.3',
     install_requires=core_requirements,
     python_requires='>=3.7,<3.10',
     package_dir={'': 'src'},

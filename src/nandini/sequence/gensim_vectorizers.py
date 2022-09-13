@@ -1,13 +1,12 @@
-import pandas as pd 
+from email.policy import default
 import numpy as np 
 from gensim.models.fasttext import FastText
 from gensim.models.word2vec import Word2Vec
 from progressbar import progressbar
 from tqdm import tqdm
 import io
-import logging
 import os
-from requests import request
+from urllib import request
 
 
 
@@ -38,10 +37,7 @@ class Word2Vec_vectorize:
 
 
 class FastText_vectorize:
-    
-    DO_LOWER_CASE = "do_lower_case"
 
-    defaults = {MODEL_NAME: "wiki_300dimension_word.vec.zip", DO_LOWER_CASE: True}
     DEFAULT_MODELS_DIR = os.path.join(
         os.path.expanduser("~"), ".cache", "nandini", "models"
     )
@@ -58,7 +54,7 @@ class FastText_vectorize:
 
 
     def __init__(self,file_path : str = None) -> None:
-        self.file_path = file_path
+        self.file_path = self.download_models(specific_models="wiki_300dimension_word.vec.zip")
         self.dimension = 300
         self.data = {}
         pass
@@ -95,16 +91,11 @@ class FastText_vectorize:
             return model_path
 
 
-    def _build_vector(self):
+    def build_vector(self):
         f = io.open(self.file_path,'r',encoding = 'utf-8',newline='\n',errors = 'ignore')
-        # n, d = map(int, f.readline().split())
-        # print(d)
         for line in tqdm(f,colour = 'red'):
             tokens = line.strip().split(' ')
             self.data[tokens[0]] = np.array(list(map(float, tokens[1:])))
-        # with time log
-        # logging.info("built word to vector")
-        # return data
     
     def _get_dimension(self):
         return self.dimension
@@ -117,7 +108,7 @@ class FastText_vectorize:
     
     def _get_vector_list(self,word_list : list):
         if self.data == {}:
-            self._build_vector()
+            self.build_vector()
         if word_list == []:
             return np.zeros(self.dimension)
         return np.array([self._get_vector(word) for word in word_list])
