@@ -2,3 +2,4 @@ build
 dist
 distcheck
 src/nandini.egg-info
+src/nandini/sequence/__pycache__

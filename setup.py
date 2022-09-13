@@ -1,7 +1,11 @@
 import setuptools
 
 core_requirements = [ 
-    'numpy==1.23.2'
+    'numpy==1.23.2',
+    'regex==2022.9.13',
+    'tqdm==4.64.1',
+    'joblib==1.1.0',
+    'nltk==3.7',
 ]
 
 setuptools.setup(
