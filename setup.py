@@ -14,7 +14,7 @@ setuptools.setup(
     url="",
     author='Sanjaypranav',
     author_email='sanjaypriya195@gmail.com',
-    version='0.0.1',
+    version='0.0.2',
     install_requires=core_requirements,
     python_requires='>=3.7,<3.10',
     package_dir={'': 'src'},
