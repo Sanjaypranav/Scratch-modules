@@ -6,6 +6,7 @@ core_requirements = [
     'tqdm==4.64.1',
     'joblib==1.1.0',
     'nltk==3.7',
+    'progressbar==2.5',
 ]
 
 setuptools.setup(

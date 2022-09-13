@@ -2,10 +2,12 @@ import pandas as pd
 import numpy as np 
 from gensim.models.fasttext import FastText
 from gensim.models.word2vec import Word2Vec
+from progressbar import progressbar
 from tqdm import tqdm
 import io
 import logging
 import os
+from requests import request
 
 
 
@@ -36,11 +38,62 @@ class Word2Vec_vectorize:
 
 
 class FastText_vectorize:
+    
+    DO_LOWER_CASE = "do_lower_case"
+
+    defaults = {MODEL_NAME: "wiki_300dimension_word.vec.zip", DO_LOWER_CASE: True}
+    DEFAULT_MODELS_DIR = os.path.join(
+        os.path.expanduser("~"), ".cache", "nandini", "models"
+    )
+    MODELS = {
+        "wiki_300dimension_word.vec.zip": "https://dl.fbaipublicfiles.com/"
+        "fasttext/vectors-english/wiki-news-300d-1M.vec.zip",
+        "wiki_300dimension_sub_word.vec.zip": "https://dl.fbaipublicfiles.com/"
+        "fasttext/vectors-english/wiki-news-300d-1M-subword.vec.zip",
+        "crawl_300dimension_word.vec.zip": "https://dl.fbaipublicfiles.com/"
+        "fasttext/vectors-english/crawl-300d-2M.vec.zip",
+        "crawl_300dimension_sub_word.vec.zip": "https://dl.fbaipublicfiles.com/"
+        "fasttext/vectors-english/crawl-300d-2M-subword.zip",
+    }
+
+
     def __init__(self,file_path : str = None) -> None:
         self.file_path = file_path
         self.dimension = 300
         self.data = {}
         pass
+
+    def download_models(self, specific_models=None):
+        os.makedirs(self.DEFAULT_MODELS_DIR, exist_ok=True)
+
+        def show_progress(block_num, block_size, total_size):
+            global pbar
+            if pbar is None:
+                pbar = progressbar.ProgressBar(maxval=total_size)
+                pbar.start()
+
+            downloaded = block_num * block_size
+            if downloaded < total_size:
+                pbar.update(downloaded)
+            else:
+                pbar.finish()
+                pbar = None
+
+        for model_name, url in self.MODELS.items():
+            if specific_models is not None and model_name not in specific_models:
+                continue
+            model_path = os.path.join(self.DEFAULT_MODELS_DIR, model_name)
+            if os.path.exists(model_path):
+                return model_path
+
+            request.urlretrieve(url, model_path, show_progress)
+
+            import zipfile
+
+            with zipfile.ZipFile(model_path, "r") as zip_ref:
+                zip_ref.extractall(self.DEFAULT_MODELS_DIR)
+            return model_path
+
 
     def _build_vector(self):
         f = io.open(self.file_path,'r',encoding = 'utf-8',newline='\n',errors = 'ignore')
