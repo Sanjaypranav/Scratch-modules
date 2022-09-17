@@ -3,9 +3,9 @@ venv:
 
 activate:
 	nandini/bin/activate
-	
 
 install:
+	pip install virtualenv
 	venv
 	activate
 	python setup.py install
