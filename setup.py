@@ -9,8 +9,6 @@ core_requirements = [
     'progressbar==2.5',
     'scipy==1.9.1',
     'gensim==4.2.0'
-    
-
 ]
 
 setuptools.setup(
