@@ -8,7 +8,7 @@
 # Introduction to Nandini
 <p style= 'font-size:12px'> Note : only supported for Python 3.7 to Python 3.9 </p>
 
-Nandhini is a NLP based Python Package devoloped by Puretalk AI employee and Nandhini from the name of the employee who devoloped this package. Nandhini comprises of various NLP based functions and modules which can be used to perform various NLP tasks. Nandhini is a open source package and can be used by anyone for free.
+Nandini is a NLP based Python Package devoloped by Puretalk AI employee and Nandini from the name of the employee who devoloped this package. Nandini comprises of various NLP based functions and modules which can be used to perform various NLP tasks.
 
 
 # <div align="center">Installation <img width = 30px height = 30px src ='https://imgs.search.brave.com/boLkeEITNBddmKoVc4Q41tEheu7XTCx4mB79Rj0x3Pc/rs:fit:300:300:1/g:ce/aHR0cHM6Ly93d3cu/Y2VydHNhbi5jb20u/YnIvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMDQvaW5zdGFs/bGF0aW9uLWljb24t/cG5nLTctMzAweDMw/MC5wbmc' style="vertical-align:middle" ></div>
@@ -28,8 +28,8 @@ or by cloning the repository
 $ git clone https://github.com/Sanjaypranav/Scratch-modules.git
 $ cd Scratch-modules
 $ export PYTHONPATH=./src
-$ python setup.py sdist bdist_wheel
-$ python setup.py install
+$ python3 setup.py sdist bdist_wheel
+$ python3 setup.py install
 ```
 ### Docker Installation <img width = 35px height = 35px src ='https://imgs.search.brave.com/8zyG1tMW7_Nnark19_kPdUHXVXERQWozcd00Vr57tgY/rs:fit:900:900:1/g:ce/aHR0cHM6Ly95dDMu/Z2dwaHQuY29tLy00/RGlURzB2dEVXMC9B/QUFBQUFBQUFBSS9B/QUFBQUFBQUFBQS83/M2tnX0NOSzU0Zy9z/OTAwLWMtay1uby1t/by1yai1jMHhmZmZm/ZmYvcGhvdG8uanBn' style="vertical-align:middle" >
 
@@ -62,7 +62,17 @@ for writing docker
 [<img align="left" alt="Puretalk | LinkedIn" width="30px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin][<img align="left" alt="Puretalk | Twitter" width="30px" src="https://img.icons8.com/fluent/48/000000/twitter.png" />][twitter][<img align ="left" alt="Sanjaypranav" width="30px" src="https://img.icons8.com/color/48/000000/gmail.png" />][gmail]
 
 
-[linkedin]: https://www.linkedin.com/in/nandhini-s-175655176
+[linkedin]: https://www.linkedin.com/in/Nandini-s-175655176
 [twitter]: https://twitter.com/Nandhin96093533 
-[gmail]: mailto:nandhinivadalur@gmail.com
+[gmail]: mailto:Nandinivadalur@gmail.com
+
+<!-- for Author use -->
+test-pypi
+
+    python3 -m twine upload --repository testpypi dist/*
+
+pypi
+
+    python3 -m twine upload dist/*
+
 

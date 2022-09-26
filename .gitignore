@@ -4,3 +4,5 @@ distcheck
 src/nandini.egg-info
 src/nandini/sequence/__pycache__
 nandini
+scratch
+__pycache__
